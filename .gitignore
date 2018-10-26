@@ -10,3 +10,9 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+mnist_test.csv
+mnist_test_100.csv
+mnist_train.csv
+mnist_train_1000.csv
+*.json
