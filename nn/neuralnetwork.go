@@ -249,7 +249,6 @@ func (nn *NeuralNetwork) TrainWithDataset(ds dataset.Dataset, batchSize, iterati
 
 // Fetches batches of data in the background and shuffles it before sending the batch back
 func dataFetchAsync(ds dataset.Dataset, dataChan chan (*dataset.DataSample), size int) {
-	tot := 0
 	samples := make([]*dataset.DataSample, 0, size)
 
 	var sendSamples = func() {
@@ -265,7 +264,6 @@ func dataFetchAsync(ds dataset.Dataset, dataChan chan (*dataset.DataSample), siz
 	sample := ds.NextSample()
 	for sample != nil {
 		samples = append(samples, sample)
-		tot++
 
 		if len(samples) == size {
 			sendSamples()
